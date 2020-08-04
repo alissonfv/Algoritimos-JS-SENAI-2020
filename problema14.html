@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 14 - Par ou Ímpar</title>
+</head>
+
+<body>
+    <h1>Exemplo 14 - Par ou Ímpar</h1>
+    <h4>(Valores de 1 á 15)</h4>
+    <input type="button" value="Digite os Valores" onclick="adicionar()">
+    <input type="button" value="Verificar Par ou Ímpar" onclick="verificar()">
+    <p id="resposta"></p>
+    <script>
+        var vNumeros = [];
+        var respostas = [];
+        var resultado = document.getElementById("resposta");
+
+        resultado.innerHTML
+
+        function adicionar() {
+
+            for (var contador = 1; contador <= 15; contador++) {
+
+                var valor = prompt("Digite o " + contador + "º valor");
+                vNumeros.push(Number(valor));
+            }
+
+        }
+        function verificar() {
+
+            var texto = "";
+
+
+
+            for (var contador = 0; contador <= vNumeros.length - 1; contador++) {
+
+                    if (vNumeros[contador] % 2 == 0) {
+                        respostas.push("Par");
+                    }
+                    else {
+                        respostas.push("Ímpar");
+                    }
+
+            }
+            for (var contador = 0; contador <= vNumeros.length - 1; contador++) {
+
+                texto += "O " + (contador + 1) + " º valor " + " = " + vNumeros[contador] + " é " + respostas[contador] + "<br>";
+
+            }
+            resultado.innerHTML = texto;
+        }
+
+    </script>
+</body>
+
+</html>

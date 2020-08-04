@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="Pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 10</title>
+</head>
+
+<body style="margin: 5%;">
+    <h2>Problema 10- Verificar número perfeito:</h2>
+    <label for="numero">
+        Digite um número:
+        <input type="number" id="numero">
+        <input type="button" value="Verificar" onclick="numeroPerfeito()">
+    </label>
+    <p id="numero_soma"></p>
+    <p id="resposta"></p>
+    <script>
+        function numeroPerfeito() {
+            var numero = document.getElementById("numero").value;
+            var resposta = document.getElementById("resposta");
+            var numero_escrito = document.getElementById("numero_soma");
+            var soma = 0;
+            clear(); 
+            for (var contador = 1; contador < numero; contador++) {
+
+                if (numero % contador == 0) {
+                    soma += contador;
+                    if(contador==1){
+                    numero_escrito.innerHTML +=contador ;
+                }else{
+                    numero_escrito.innerHTML += "," + contador;
+                }
+            }
+           
+            }
+            numero_escrito.innerHTML+= "(Soma =" + soma + ")";
+            if (soma != numero) {
+                resposta.innerHTML = `<stong>${numero} não é um número PERFEITO.</stong>`;
+            }
+            else {
+                resposta.innerHTML = `<stong>${numero} é um número PERFEITO.</stong>`;
+            }
+            
+        }
+        
+        function clear(){
+            var resposta = document.getElementById("resposta");
+            var numero_escrito = document.getElementById("numero_soma");
+
+            resposta.innerHTML = "";
+            numero_escrito.innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>

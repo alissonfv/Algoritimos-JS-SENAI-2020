@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 8- Criação de Coelho</title>
+</head>
+<body>
+   <h1>Problema 8- Criação de Coelhos</h1>
+    <p>  
+        N° de Coelho: <input type="text" id="number_rabbits">
+    </p>
+    <p>
+        N° de Anos: <input type="text" id="number_years">
+    </p>
+    <p> 
+        <input type="button" name="verificacao" value="Calcular" onclick="calcular_coelho()"> 
+    </p>
+    <p id="result"> 
+    </p>
+    <script>
+        function calcular_coelho(){
+            var number_rabbits = Number(document.getElementById("number_rabbits").value);
+            var number_years = Number(document.getElementById("number_years").value);
+            var result = document.getElementById("result");
+            var counter = 1;
+
+
+        if(number_rabbits>=2){
+
+            while( counter <= number_years){
+                result.innerHTML= result.innerHTML +  counter + "° ano: " + (number_rabbits) + " coelhos<hr>";
+                number_rabbits = number_rabbits*3;
+                counter++;
+                
+            }
+        return;
+
+        }else
+        {
+            window.alert(' Precisa de pelo menos um casal.');
+            return;
+        }
+        clear();
+
+        }
+        function clear()
+        {
+            var result = document.getElementById("result");
+            result.innerHTML = '';
+        }
+    </script>
+</body>
+</html>

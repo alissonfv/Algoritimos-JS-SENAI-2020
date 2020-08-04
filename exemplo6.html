@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Exercício 6 - Sequência Numérica</title>
+</head>
+    <style>
+        body{
+           padding: 20px;
+        }
+    </style>
+<h2> Exercício 6 - Estruturas de Repetição - While</h2>
+<body>
+ <input type="button" value="Gerar Sequência 1" onclick="GerarSequencia1()"><br><br>
+ <input type="button" value="Gerar Sequência 2" onclick="GerarSequencia2()">
+ <h3 id="texto1"></h3><br>
+ <h3 id="texto2"></h3><br>
+ <script>
+ function GerarSequencia1(){
+ var texto1 = document.getElementById("texto1");
+ var texto_sequencia = "Sequência Crescente:";
+ var contador=1;
+
+ while (contador<=50)
+ {
+ if (contador ==50) {
+ texto_sequencia = texto_sequencia + " " + contador + ".";
+ }
+ else
+ {
+ texto_sequencia = texto_sequencia + " " + contador + ",";
+ }
+ contador +=1;
+ }
+texto1.innerHTML = texto_sequencia;
+ }
+ function GerarSequencia2(){
+ var texto2 = document.getElementById("texto2");
+ var texto_sequencia = "Sequência Decrescente:";
+ var contador=50;
+
+ while (contador>=1)
+ {
+ if (contador ==1) {
+ texto_sequencia = texto_sequencia + " " + contador + ".";
+ }
+ else {
+ texto_sequencia = texto_sequencia + " " + contador + ",";
+ }
+ contador -=1;
+ }
+ texto2.innerHTML = texto_sequencia;
+ }
+ </script>
+</body>
+</html>

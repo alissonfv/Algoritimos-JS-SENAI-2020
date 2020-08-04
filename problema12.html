@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROBLEMA JS12 - PALÍNDROMOS</title>
+</head>
+
+<body>
+    <h1>PROBLEMA JS12 - PALÍNDROMOS</h1>
+    <label for="palavra">
+        Digite a palavara:
+        <input type="text" id="palavra">
+    </label>
+    <input type="button" value="Verrificar(Sem Acentos)" onclick="verificar()">
+    <p id="resposta" style=" font-size: xx-large;"></p>
+    <script>
+        function verificar(){
+            var palavra = document.getElementById("palavra").value;
+            var resultado = document.getElementById("resposta");
+            var palavraContrario = inverter_palavra(palavra);
+            resultado.innerHTML = "Palavra Invertida:" + palavraContrario + "<br>";
+
+            if( palavra.toUpperCase()== palavraContrario){
+                resultado.innerHTML += " A palavra " + palavra.toUpperCase() + " é" + " um palíndromo";
+            }
+            else{
+                resultado.innerHTML += " A palavra " + palavra.toUpperCase() + " Não é " + " um palíndromo";
+            } 
+        }
+        function inverter_palavra(palavra){
+            var tamanhoPalavra = palavra.length-1;
+            var palavraContrario = "";
+
+            for(var contador = tamanhoPalavra; contador>=0;contador--){
+                palavraContrario = palavraContrario+ palavra.charAt(contador);
+            }
+
+        return palavraContrario.toUpperCase();    
+        }
+    </script>
+</body>
+
+</html>

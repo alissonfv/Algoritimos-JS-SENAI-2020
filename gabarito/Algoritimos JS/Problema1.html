@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 1</title>
+</head>
+<body>
+    <h2>Taxa do Garçom</h2>
+    <p>
+        Valor do Jantar (R$): <input type="text" id="valor_jantar">
+    </p>
+    <p>
+        Valor da Taxa do Garçom (R$): <input type="text" id="valor_taxa">
+    </p>
+    <p>
+        <input type="button" value="Soma os dois valores" onclick="mostrar_soma()">
+    </p>
+    <p id="resposta"></p>
+    <script>
+       function mostrar_soma(){
+        var valor_jantar = document.getElementById("valor_jantar").value;
+        var valor_taxa = document.getElementById("valor_taxa").value;
+        var soma = Number(valor_jantar) + Number(valor_taxa);
+
+        document.getElementById("resposta").innerHTML = `Valor Total do jantar (R$): ${soma}`;
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.png">
+    <style>
+        body {
+            margin-left: 3%;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        p {
+            font-weight: bolder;
+            margin-left: 100px;
+        }
+
+        .avai {
+            margin-left: 45px;
+        }
+
+        pre {
+            margin-left: 2%;
+            font-weight: bolder;
+            font-size: x-large;
+
+        }
+
+        .vitoria {
+            font-size: 15px;
+            font-weight: unset;
+            text-align: center;
+        }
+
+        .saldo {
+            font-size: 15px;
+            font-weight: unset;
+            text-align: center;
+        }
+
+        .tituloSaldo {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .tituloVitoria {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .centro {
+            text-align: center;
+        }
+    </style>
+    <title> Avaí X Figueirense</title>
+</head>
+
+<body>
+    <div class="centro">
+        <h1>Digite os resultados das partidas de Avaí e Figueirense</h1>
+        <label for="avai">
+            <img src="img/avai.png"> Avaí:
+            <input type="number" id="resulAvai" class="avai">
+        </label>
+        <p>X</p>
+        <label for="figueirense">
+            <img src="img/Figueirense.png"> Figueirense:
+            <input type="number" id="resulFigueirense">
+        </label>
+        <br><br><br>
+        <label for="botoes">
+            <input type="button" value="Adicionar Jogo" onclick="adicionar()">
+            <input type="button" value="Verificar Dados" onclick="verificar()">
+        </label>
+        <p>
+        <h5 class="tituloSaldo">Saldo de Gols:</h5>
+        <pre id="saldo" class="saldo"></pre>
+        <h5 class="tituloVitoria">Número de Vitórias:</h5>
+        <pre id="vitorias" class="vitoria"></pre>
+    </div>
+    </p>
+    <hr>
+    <pre id="resposta"></pre>
+    <script>
+        var jogo = [];
+        var avai = [];
+        var figueirense = [];
+
+
+        var vitorias = document.getElementById("vitorias");
+        var resultadoAvai = document.getElementById("resulAvai");
+        var resultadoFigueirense = document.getElementById("resulFigueirense");
+        var resposta = document.getElementById("resposta");
+        var saldo = document.getElementById("saldo");
+
+        vitorias.textContent = "Avaí:\t\tFigueirense:\t\tEmpates:"
+        resposta.textContent = "\nJogo\t\t\tAvaí\t\t\tX\t\t\tFigueirense"
+        saldo.textContent = "Avaí:\t\tFigueirense:"
+
+        function adicionar() {
+            var golsAvai = Number(resultadoAvai.value);
+            var golsFigueirense = Number(resultadoFigueirense.value);
+            var numeroJogos = 1
+            if (golsAvai <= 9 && golsAvai >= 0 && golsFigueirense <= 9 && golsFigueirense >= 0) {
+                for (contador = 0; contador <= jogo.length - 1; contador++) {
+                    numeroJogos++;
+                }
+            } else {
+                alert("Os Gols só podem se de 0 á 9!!");
+                return;
+            }
+            jogo.push(contador);
+            avai.push(golsAvai);
+            figueirense.push(golsFigueirense);
+
+            resposta.textContent += "\n" + numeroJogos + "\t\t\t" + golsAvai + "\t\t\t" + "X" + "\t\t\t" + golsFigueirense;
+            limparCampos();
+        }
+
+        function verificar() {
+            var golsAvai=0 ;
+            var golsFigueirense=0 ;
+            var vitoriaAvai = 0;
+            var vitoriaFigueira = 0;
+            var empates = 0;
+            var saldoAvai = 0;
+            var saldoFigueira = 0;
+            var saldoAvaiFinal = 0;
+            var saldoFigueiraFinal = 0;
+            var totalGolsAvai=0;
+            var totalGolsFigueira=0;
+
+            for (contador = 0; contador <=jogo.length - 1; contador++) {
+                golsAvai = avai[contador];
+                golsFigueirense = figueirense[contador];
+
+                if (golsAvai < golsFigueirense) {
+                    vitoriaFigueira++;
+                    saldoFigueira += golsFigueirense - golsAvai;
+                    totalGolsAvai+=golsAvai;
+                    totalGolsFigueira+=golsFigueirense ;
+                }
+                else if (golsAvai > golsFigueirense) {
+                    vitoriaAvai++;
+                    saldoAvai += golsAvai - golsFigueirense; 
+                    totalGolsFigueira+=golsFigueirense ;
+                    totalGolsAvai+=golsAvai;
+                }
+                else {
+                    empates++;
+                    totalGolsFigueira+=golsFigueirense ;
+                    totalGolsAvai+=golsAvai;
+                }
+               
+            }
+            saldoAvaiFinal = saldoAvai - saldoFigueira
+            saldoFigueiraFinal = saldoFigueira - saldoAvai
+
+            vitorias.textContent = "Avaí:" + vitoriaAvai + "\t\tFigueirense:" + vitoriaFigueira + "\t\tEmpates:" + empates;
+            saldo.textContent = "Avaí: Gols "+ totalGolsAvai + "(Saldo:" + saldoAvaiFinal + " )" +"\t\tFigueirense: Gols " + totalGolsFigueira + "(Saldo :" + saldoFigueiraFinal + " )";
+        }
+        function limparCampos()
+    {
+        resulAvai.value = "";
+        resulFigueirense.value = "";
+
+    }
+    </script>
+</body>
+
+</html>

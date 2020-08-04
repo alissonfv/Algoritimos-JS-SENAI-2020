@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROBLEMA 15 - JOGOS ELIMINATÓRIOS</title>
+</head>
+
+<body>
+  <h1>PROBLEMA 15 - JOGOS ELIMINATÓRIOS </h1>
+  <label for="clube">
+    <input type="text" id="clube">
+    <input type="button" value="Adicionar" onclick="adicionar()">
+  </label>
+  <br><br>
+  <label for="botoes">
+    <input type="button" value="Mostrar Lista" onclick="mostrar()">
+    <input type="button" value="Montar Tabela" onclick="tabela()">
+  </label>
+
+  <pre id="resposta"></pre>
+
+  <script>
+    var clubes = [];
+    var resposta = document.getElementById("resposta");
+    var clube = document.getElementById("clube");
+    resposta.textContent
+
+    function adicionar() {
+      clubes.push(clube.value);
+      clube.value = "";
+    }
+    function mostrar() {
+      resposta.textContent = "";
+      for (contador = 0; contador <= clubes.length - 1; contador++) {
+        resposta.textContent += "\n" + (contador + 1) + ". " + clubes[contador]
+      }
+
+    }
+    function tabela() {
+
+      resposta.textContent="";
+      if (clubes.length % 2 == 0 || clubes.length != 0) {
+        var ultimo = clubes.length - 1;
+        for (contador = 0; contador < clubes.length / 2; contador++) {
+          resposta.textContent += clubes[contador] + " x " + clubes[ultimo - contador] + "\n";
+        }
+
+      }
+      else {
+        alert("Por Favor Adicionar mais um Time, pois so Aceitamos números pares!!")
+        resposta.textContent = "";
+      }
+
+    }
+
+  </script>
+</body>
+
+</html>

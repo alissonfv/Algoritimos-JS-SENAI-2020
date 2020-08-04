@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROBLEMA JS4 - LAN HOUSE
+    </title>
+</head>
+<body>
+    <h2>Lan House Floripa Airport</h2>
+    <p>Valor por 15min de uso: <input type="number" id="valorPor15Min"></p>
+    <p>Tempo de uso(min): <input type="number" id="tempoUso"></p>
+    <input type="button" onclick="calcularValorPagar()" value="Calcular Valor a Pagar">
+    <p id="pagar"></p>  
+</body>
+<script>
+        function calcularValorPagar(){
+            var tempo = Number(15)
+            var valorPor15Min = Number(document.getElementById("valorPor15Min").value);
+            var tempoUso = Number(document.getElementById("tempoUso").value);
+            var tempoCheio = Math.floor(tempoUso/tempo);
+            var tempoFracionado = tempoUso%tempo;
+                if(tempoFracionado!=0){
+                    tempoFracionado = 1 // para calcular o valor cheio
+                };
+                var pagar = valorPor15Min*(Number(tempoCheio)+Number(tempoFracionado));
+            pagar = pagar.toFixed(2);
+            document.getElementById("pagar").innerHTML = `Valor a Pagar <strong>R$ ${pagar}</strong>`;
+        };
+    </script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 4</title>
+</head>
+<body>
+    <h2>Calculo Venda</h2>
+
+    <p>
+        Preço (R$); <input type="text" id="preco">
+    </p>
+    <p>
+        <input type="button" value="Calcular" onclick="calcular()">
+    </p>
+    <p id="resposta"></p>
+    <script>
+        function calcular()
+        {
+            var preco = document.getElementById("preco").value;
+            var porcentagem = Number(preco) * 0.1;
+            var preco_vista = Number(preco) - porcentagem;
+            var preco_prazo = Number(preco)/3;
+
+            document.getElementById("resposta").innerHTML = "À vista(R$) :" + preco_vista + " Ou 3x de R$" + preco_prazo;
+            
+        }
+    </script>
+</body>
+</html>

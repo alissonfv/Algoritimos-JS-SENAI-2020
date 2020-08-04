@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 9 - Verificar Número Primo</title>
+</head>
+<body>
+    <h1>Problema 9 - Verificar Número Primo</h1>
+    <div>
+        <label for="numero_primo">Digite um número:</label>
+        <input type="text" size="2" id="numero_primo">
+        <input type="button" value="Verificar se é número primo" name="numero_primo_verificar" onclick="calcular_numero_primo()">
+        <h2 id="result"></h2>
+    </div>
+    <script>
+        function calcular_numero_primo(){
+            var numero = Number(document.getElementById("numero_primo").value);
+            var result= document.getElementById("result");
+            var counter_primos= 0;
+
+            for(var counter=1; counter<=numero; counter++ ){
+                if(numero%counter==0){
+                    counter_primos++;
+                }
+            }
+            if(counter_primos==2){
+                result.innerHTML="Este é um Número Primo.";
+            }
+            else{
+                result.innerHTML="Este não é um número primo.";
+            }
+        }
+    </script>
+</body>
+</html>

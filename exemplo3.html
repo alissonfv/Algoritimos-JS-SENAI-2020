@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+        <title>Exemplo 3 - Cinema em Casa</title>
+    </head>
+    <body>
+        <h2>Exemplo 3 - Cinema em Casa</h2>
+        <p>
+            Título do Filme: <input type="text" id="titulo">
+        </p>
+        <p>
+            Duração (Min): <input type="text" id="duracao">
+        </p>
+        <p>
+            <input type="button" value="Converter horas em min." onclick="mostrar()">
+        </p>
+        <p id="filme"></p>
+        <p id="resultado"></p>
+        <script>
+           function mostrar()
+           {
+               var titulo = document.getElementById("titulo").value;
+               var duracaoMinutos = document.getElementById("duracao"). value;
+               var duracaoHoras = Math.floor(duracaoMinutos/60);
+               var restoMinutos = duracaoMinutos%60;
+
+               document.getElementById("filme").innerHTML = `Duração do filme <strong> ${titulo}</strong>`;
+               document.getElementById("resultado").innerHTML= `${duracaoHoras} hora(s) e ${restoMinutos0} minutos(s)`;
+           }
+        </script>
+    </body>
+</html>

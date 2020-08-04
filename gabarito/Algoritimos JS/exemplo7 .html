@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Exercício 7 - Estruturas de Repetição</title>
+</head>
+<h2> Exercício 7 - Estruturas de Repetição - For</h2>
+<body>
+ <input type="text" id="numero" size=3>
+ <input type="button" value="Gerar Tabuada" onclick="GerarTabuada()"><br><br>
+ <h3 id="saida"></h3><br>
+ <script>
+ function GerarTabuada()
+ {
+
+ var n_tabuada = Number(document.getElementById("numero").value);
+ var texto_sequencia = "Tabuada do " + n_tabuada + ":" + "<br>";
+ var texto = document.getElementById("saida");
+ for (var i=1;i<=10;i++)
+ {
+ texto_sequencia = texto_sequencia + n_tabuada + " x " + i + " = " + (n_tabuada*i) + "<br>";
+ }
+ texto.innerHTML = texto_sequencia;
+ }
+ </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 11</title>
+</head>
+<body>
+    <div>
+        <h1> Problema 11- Clube de Nataçao</h1>
+        <label for="nome">
+            Nome:
+            <input type="text" id="nome">
+        </label>
+        <br><br>
+        <label for="nome">
+            Idade:
+            <input type="number" id="idade">
+        </label>
+        <br><br>
+        <label>
+            <input type="button" value="Categorizar" name="verificar" onclick="verificarCategoria()">
+        </label>
+        <p><pre style="font-weight: bolder; font-size: x-large;" id="resposta"></pre></p>
+    </div>
+    <script>
+        function verificarCategoria(){
+            var nome = document.getElementById("nome").value;
+            var idade = document.getElementById("idade").value;
+            var resposta = document.getElementById("resposta");
+            var traco = retornarTraco(nome);
+            var categorizacao = CategorizarAluno(idade);
+
+            resposta.innerHTML = nome + "<br>" + traco + "<br>Categoria:" + categorizacao;
+        }
+        function CategorizarAluno(idade){
+
+            if(idade>0 && idade<=12){
+                return "INFANTIL";
+            }
+            else if(idade>=13 && idade<=18){
+                return "JUVENIL";
+            }
+            else{
+                return "Adulto";     
+            }      
+        }
+        function retornarTraco(nome){
+            var tamanhoNome = nome.length;
+            var traco = "";
+            for(var contador = 0; contador<tamanhoNome; contador++){
+                if(nome.charAt(contador) != " "){
+                    traco = traco + "-";
+                }
+                else{
+                    traco = traco + " ";
+                }
+            }
+            return traco;
+
+        }
+    </script>
+</body>
+</html>

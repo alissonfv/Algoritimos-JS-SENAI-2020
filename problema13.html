@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 13</title>
+    <style>
+        body {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<h1>Problema 13 - Listagem de Notas</h1>
+
+<body>
+    <p>Digite o Nome do aluno: <input type="text" id="nome"> </p>
+    <p>Digite a Primeira Nota: <input type="number" id="nota1"></p>
+    <p>Digite a Segunda Nota: <input type="number" id="nota2"></p>
+    <p>
+        <input type="button" value="Adicionar" onclick="adicionar()">
+        <input type="button" value="Verificar" onclick="verificar()">
+        <input type="button" value="Limpar" onclick="limpar()">
+    </p>
+    <pre id="resultado"> </pre>
+</body>
+<script>
+    var nomes = [];
+    var notas1 = [];
+    var notas2 = [];
+    var medias = [];
+
+    var result = document.getElementById("resultado");
+    var texto_nome = document.getElementById("nome");
+    var texto_nota1 = document.getElementById("nota1");
+    var texto_nota2 = document.getElementById("nota2");
+    resultado.textContent = "\nNome\t\t\t\Nota1\t\tNota2"
+
+
+    function adicionar() {
+        var nota1 = Number(texto_nota1.value)
+        var nota2 = Number(texto_nota2.value)
+
+        nomes.push(texto_nome.value);
+        notas1.push(nota1);
+        notas2.push(nota2);
+        medias.push((nota1 + nota2) / 2);
+
+        resultado.textContent += "\n" + texto_nome.value + "\t\t\t" + nota1 + "\t\t" + nota2;
+        limpar_campos();
+    }
+    function verificar() {
+        var texto = "";
+        for (contador = 0; contador <= nomes.length - 1; contador++) {
+            texto += "Nome: " + nomes[contador] + "\nMédia: " + medias[contador] + "\n\n";
+        }
+        alert(texto);
+    }
+    function limpar() {
+
+        nomes = [];
+        notas1 = [];
+        notas2 = [];
+        medias = [];
+
+        resultado.textContent = "";
+        limpar_campos();
+        resultado.textContent = "\nNome\t\t\t\Nota1\t\tNota2"
+    }
+
+    function limpar_campos() {
+        texto_nome.value = "";
+        texto_nota1.value = "";
+        texto_nota2.value = "";
+    }
+</script>
+
+</html>

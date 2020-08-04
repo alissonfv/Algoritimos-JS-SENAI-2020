@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema 4</title>
+</head>
+<body>
+    <h2>Lan House</h2>
+    <p>
+        Valor por 15min de uso: <input type="text" id="valor">
+    </p>
+    <p>
+        Tempo de Uso(R$): <input type="text" id="tempo">
+    </p>
+    <p>
+        <input type="button" value="Calcular o Valor a Pagar" onclick="preco_a_pagar()">
+    </p>
+    <p id="resultado"></p>
+    <script>
+        function preco_a_pagar(){
+            var preco = document.getElementById("valor").value;
+            var tempo = document.getElementById("tempo").value;
+            var divisao_tempo = Math.ceil(tempo/15);
+            var valor_pago = Number(preco) * divisao_tempo;
+
+            document.getElementById("resultado").innerHTML = `Valor a pagar R$: ${valor_pago}`;
+        }
+    </script>
+</body>
+</html>
